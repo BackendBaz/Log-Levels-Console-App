@@ -29,6 +29,7 @@ public class LogLevels {
     public static String reformat(String logLine) {
         String level = logLevel(logLine), message = message(logLine);
         if (level.isEmpty() && message.isEmpty()) return "";
-        return String.format("%s (%s)", message, level);
+        // performance: '+' Operator > 'String.format()'
+        return message + " " + "(" + level + ")";
     }
 }
