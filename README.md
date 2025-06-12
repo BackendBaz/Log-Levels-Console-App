@@ -23,3 +23,4 @@ You have three tasks, each of which will take a log line and ask you to do somet
 2. Get log level from a log line
    - It returns a log line's log level, which should be returned in **lowercase**.
 3. Reformat a log line
+   - It reformats the log line, putting the message first and the log level after it in parentheses.

@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
 import static org.assertj.core.api.Assertions.*;
 
 public class LogLevelsTest {
@@ -98,5 +97,13 @@ public class LogLevelsTest {
     public void reformat_with_leading_and_trailing_white_space() {
         assertThat(LogLevels.reformat("[ERROR]: \t Corrupt disk\t \t \r\n"))
             .isEqualTo("Corrupt disk (error)");        
+    }
+
+    @Test
+    @Tag("task:3")
+    @DisplayName("Validate the Pattern")
+    public void reformat_with_invalid_pattern() {
+        assertThat(LogLevels.reformat("WARNING]:  [Timezone: not set]"))
+                .isEqualTo("");
     }
 }

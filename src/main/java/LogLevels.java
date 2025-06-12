@@ -27,6 +27,8 @@ public class LogLevels {
     }
 
     public static String reformat(String logLine) {
-        throw new UnsupportedOperationException("Please implement the (static) LogLevels.reformat() method");
+        String level = logLevel(logLine), message = message(logLine);
+        if (level.isEmpty() && message.isEmpty()) return "";
+        return String.format("%s (%s)", message, level);
     }
 }
