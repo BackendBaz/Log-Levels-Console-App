@@ -7,17 +7,23 @@ public class LogLevels {
         // the correct ptr -> [...]: ...
         Pattern pattern = Pattern.compile("^\\[[^:\\[\\]]+]: [^:\\[\\]]+$");
         Matcher matcher = pattern.matcher(logMessage);
-        return matcher.find();
+        return !matcher.find();
     }
     
     public static String message(String logLine) {
-        if (!checkLogFormatting(logLine)) return "";
+        if (checkLogFormatting(logLine)) return "";
         String[] messageWithLevel = logLine.split(":");
         return messageWithLevel[1].trim();
     }
 
     public static String logLevel(String logLine) {
-        throw new UnsupportedOperationException("Please implement the (static) LogLevels.logLevel() method");
+        if (checkLogFormatting(logLine)) return "";
+        String[] messageWithLevel = logLine.split(":");
+        return messageWithLevel[0]
+                .replace("[", "")
+                .replace("]", "")
+                .toLowerCase()
+                .trim();
     }
 
     public static String reformat(String logLine) {

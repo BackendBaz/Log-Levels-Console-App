@@ -62,6 +62,13 @@ public class LogLevelsTest {
     }
 
     @Test
+    @Tag("task:2")
+    @DisplayName("Validate the Pattern")
+    public void level_with_invalid_pattern() {
+        assertThat(LogLevels.logLevel("WARNING]:  [Timezone: not set]")).isEqualTo("");
+    }
+
+    @Test
     @Tag("task:3")
     @DisplayName("The reformat method correctly reformats an error log line")
     public void error_reformat() {
