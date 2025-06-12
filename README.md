@@ -1,6 +1,6 @@
 **Log Levels Console App**
 
-- **Reference: [Exercism's Java Track]()**
+- **Reference: [Exercism's Java Track](https://exercism.org/tracks/java)**
 
 # Instructions
 
@@ -17,5 +17,7 @@ There are three different log levels:
 You have three tasks, each of which will take a log line and ask you to do something with it.
 
 1. Get message from a log line
+   - It returns a log line's message: `<MESSAGE>`.
+   - Any leading or trailing white space should be removed.
 2. Get log level from a log line
 3. Reformat a log line
